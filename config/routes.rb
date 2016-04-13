@@ -1,4 +1,22 @@
 Rails.application.routes.draw do
+  get "/books" => "books#index"
+  get "/books/:id" => "books#show"
+  get "/books/new" => "books#new"
+  get "/books/:id/reservations" => "books#reservations"
+
+  get "/reservations" => "reservations#index"
+  get "/reservations/:id" => "reservations#show"
+
+  patch "/books/:id" => "books#edit"
+  patch "/reservations/:id/return" => "reservations#edit"
+
+  post "/books" => "books#create"
+  post "/reservations" => "reservations/create"
+
+  delete "/books/:id" => "books#destroy"
+
+  root 'books#index'
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
