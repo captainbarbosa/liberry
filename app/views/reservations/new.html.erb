@@ -1,0 +1,20 @@
+<p style="color:red">reservations#new</p>
+
+<%= form_for @reservation do |f| %>
+  <%= f.hidden_field :book_id, :value => @book.id%>
+
+  <%= f.fields_for :user do |user_form| %>
+    <%= user_form.label :name %>
+    <%= user_form.text_field :name %>
+  <% end %>
+
+  <%= f.label :checkout_date %>
+  <%= f.date_field :checkout_date %>
+
+  <%= f.label :due_date %>
+  <%= f.date_field :due_date %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Home", reservations_path %>

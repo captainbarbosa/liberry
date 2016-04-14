@@ -1,1 +1,9 @@
-<h1>books#show</h1>
+<p style="color:red">books#show</p>
+
+<h2><%= @book.title %></h2>
+<h3>Author: <%= @book.author.name %> </h3>
+<h3>Description: <%= @book.description %> </h3>
+
+<%= link_to "Reserve", new_reservation_path(:book_id => @book.id) %>
+
+<%= link_to "Home", books_path %>

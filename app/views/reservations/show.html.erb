@@ -1,1 +1,12 @@
-<h1>reservations#show</h1>
+<p style="color:red">reservations#show</p>
+
+<% if @reservation.due_date.past? == true %>
+  <div><h1>OVERDUE!</h1></div>
+<% end %>
+
+<h2>Reservation Details</h2>
+<h3>Book: <%= @reservation.book.title %> </h3>
+<h3>Checkout date: <%= @reservation.checkout_date.strftime("%m/%d") %> </h3>
+<h3>Due date: <%= @reservation.due_date.strftime("%m/%d") %> </h3>
+
+<%= link_to "Back to reservations", reservations_path %>

@@ -1,1 +1,12 @@
 <h1>reservations#edit</h1>
+
+<%= form_for @reservation do |f| %>
+
+  <%= f.label :checkout_date %>
+  <%= f.date_field :checkout_date %>
+
+  <%= f.label :due_date %>
+  <%= f.date_field :due_date %>
+
+  <%= f.submit %>
+<% end %>

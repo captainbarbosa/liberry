@@ -1,1 +1,23 @@
-<h1>books#index</h1>
+<p style="color:red">books#index</p>
+
+<%= link_to "View Reservations", reservations_path %>
+
+<%= link_to "Add Book", new_book_path %>
+
+
+<h1>All Books</h1>
+
+<table style="border:1px solid black">
+  <th style="border:1px solid black">Title</th>
+  <th style="border:1px solid black">Author</th>
+  <th style="border:1px solid black">Edit</th>
+  <th style="border:1px solid black">Delete</th>
+    <tr>
+      <% @books.each do |book| %>
+      <td style="border:1px solid black"> <%= link_to book.title, book_path(book.id) %></td>
+      <td style="border:1px solid black"> <%= book.author.name %></td>
+      <td style="border:1px solid black"> <%= link_to "Edit", edit_book_path(book.id) %> </td>
+      <td style="border:1px solid black"> <%= link_to "Delete", book, method: :delete %> </td>
+    </tr>
+  <% end %>
+</table>

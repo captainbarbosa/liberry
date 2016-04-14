@@ -1,1 +1,22 @@
-<h1>reservations#index</h1>
+<p style="color:red">reservations#index</p>
+
+<h1>Reservations:</h1>
+
+<%= link_to "Back to books", books_path %>
+
+<table style="border:1px solid black">
+  <th style="border:1px solid black">Book</th>
+  <th style="border:1px solid black">Checkout Date</th>
+  <th style="border:1px solid black">Due Date</th>
+  <th style="border:1px solid black">Edit</th>
+  <th style="border:1px solid black">Delete</th>
+    <tr>
+      <% @reservation.each do |reservation| %>
+        <td style="border:1px solid black"> <%= link_to reservation.book.title, reservation_path(reservation.id) %> </td>
+        <td style="border:1px solid black"> <%= reservation.checkout_date.strftime("%m/%d") %> </td>
+        <td style="border:1px solid black"> <%= reservation.due_date.strftime("%m/%d") %> </td>
+        <td style="border:1px solid black"> <%= link_to "Edit", edit_reservation_path(reservation.id) %> </td>
+        <td style="border:1px solid black"> <%= link_to "Delete", reservation, method: :delete %> </td>
+    </tr>
+  <% end %>
+</table>

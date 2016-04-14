@@ -1,3 +1,5 @@
 class Reservation < ActiveRecord::Base
-  has_many :books
+  belongs_to :book
+  belongs_to :user
+  accepts_nested_attributes_for :user
 end

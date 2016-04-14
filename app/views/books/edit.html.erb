@@ -1,1 +1,18 @@
-<h1>books#edit</h1>
+<p style="color:red">books#edit</p>
+
+<%= form_for @book do |f| %>
+  <%= f.label :title %>
+  <%= f.text_field :title %>
+
+  <%= f.fields_for :authors do |author_form| %>
+    <%= author_form.label :author %>
+    <%= author_form.text_field :author %>
+  <% end %>
+
+  <%= f.label :description %>
+  <%= f.text_field :description %>
+
+  <%= f.submit %>
+<% end %>
+
+<%= link_to "Home", books_path %>
